@@ -8,7 +8,7 @@ services:
     image: mysql:8.0 # Versao do MySql
     environment:
       MYSQL_ROOT_PASSWORD: root  # Senha Padrao
-      MYSQL_DATABASE: ProjetoQuadra # Nome do database que será criado na inicializacao
+      MYSQL_DATABASE: projetoquadra # Nome do database que será criado na inicializacao
     ports:
       - 3306:3306  # Porta de execucao da instancia do MySql. O primeiro parametro diz respeito a porta do host(maquina que executa o docker), o segundo parametro a porta dentro do container
     volumes:
