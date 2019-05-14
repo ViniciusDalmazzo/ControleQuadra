@@ -39,6 +39,10 @@ namespace ApiMySql
             services.AddScoped<IJogadorRepository>(factory => {
                     return new JogadorRepository(Configuration.GetConnectionString("MySqlDbConnection"));
             });
+
+            services.AddScoped<IQuadraRepository>(factory => {
+                return new QuadraRepository(Configuration.GetConnectionString("MySqlDbConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,28 +5,28 @@ using Dapper;
 
 namespace ApiMySql.Repository
 {
-    public class JogadorRepository : IJogadorRepository
+    public class QuadraRepository : IQuadraRepository
     {
         private readonly string _connectionString;
 
-        public JogadorRepository(string connectionString)
+        public QuadraRepository(string connectionString)
         {
             _connectionString = connectionString;  
         }
 
-        public void Add(Jogador jogador)
+        public void Add(Quadra Quadra)
         {
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
-                connection.Query($"INSERT INTO {connection.Database}.Jogador(Nome, Sobrenome) VALUES('{jogador.Nome}', '{jogador.Sobrenome}')");
+                connection.Query($"INSERT INTO {connection.Database}.Quadra(Nome, Endereco) VALUES('{Quadra.Nome}', '{Quadra.Endereco}')");
             }
         }
 
-        public IEnumerable<Jogador> GetAll()
+        public IEnumerable<Quadra> GetAll()
         {
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
             {               
-                return connection.Query<Jogador>($"SELECT Id, Nome, Sobrenome FROM {connection.Database}.Jogador ORDER BY Nome ASC");
+                return connection.Query<Quadra>($"SELECT Id, Nome, Endereco FROM {connection.Database}.Quadra ORDER BY Nome ASC");
             }
         }
     }
