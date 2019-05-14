@@ -1,8 +1,6 @@
-# Api Mysql
+# API MySql - Controle Quadra
 
-Repositório que demonstra a criação de um projeto asp.net core através do CLI e conectando a um banco de dados My SQl utilizando Dapper e .net Core.
-
-Repositório base para o seguinte artigo: [aqui](https://wp.me/p7SQs9-9B).
+Repositório para criação de uma API para controle de quadras utilizando .NET Core, MySQL e Dapper.
 
 ## Requisitos
 
