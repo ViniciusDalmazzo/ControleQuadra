@@ -7,5 +7,6 @@ namespace ApiMySql.Repository
     {
         IEnumerable<Grupo> GetAll();
         void Add(Grupo Grupo);
+        void AddGrupoJogador(GrupoJogadorDTO GrupoJogador);
     }
 }

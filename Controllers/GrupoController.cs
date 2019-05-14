@@ -36,5 +36,15 @@ namespace ApiMySql.Controller
             
             return Ok(Grupo);
         }
+
+        [HttpPost]
+        [Produces(typeof(Grupo))]
+        [Route("/api/[controller]/GrupoDeJogador")]
+        public IActionResult Post([FromBody]GrupoJogadorDTO GrupoJogador)
+        {
+            _GrupoRepository.AddGrupoJogador(GrupoJogador);
+
+            return Ok(GrupoJogador);
+        }
     }
 }

@@ -22,6 +22,18 @@ namespace ApiMySql.Repository
             }
         }
 
+        public void AddGrupoJogador(GrupoJogadorDTO grupoJogador)
+        {
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                foreach (var id in grupoJogador.IdJogadores)
+                {
+                    connection.Query($"INSERT INTO {connection.Database}.GrupoJogador(IdJogador, IdGrupo) VALUES('{id}', '{grupoJogador.IdGrupo}')");
+                }
+
+            }
+        }
+
         public IEnumerable<Grupo> GetAll()
         {
             using(MySqlConnection connection = new MySqlConnection(_connectionString))
