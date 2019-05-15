@@ -27,10 +27,10 @@ DROP TABLE IF EXISTS Agendamento;
 CREATE TABLE Agendamento (
   Id int(11) NOT NULL AUTO_INCREMENT,
   IdQuadra int(11) NOT NULL,
-  IdGrupo int(11) NOT NULL,
+  IdAgendamento int(11) NOT NULL,
   DataInicio datetime NOT NULL,
   DataFim datetime NOT NULL,
-  PRIMARY KEY (Id,IdQuadra,IdGrupo),
+  PRIMARY KEY (Id,IdQuadra,IdAgendamento),
   KEY fk_Agendamento_quadra_idx (IdQuadra),
   CONSTRAINT fk_Agendamento_quadra FOREIGN KEY (IdQuadra) REFERENCES Quadra (Id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -47,13 +47,13 @@ INSERT INTO Agendamento VALUES (2,2,1,'2019-05-12 10:00:00','2019-05-12 11:00:00
 UNLOCK TABLES;
 
 --
--- Table structure for table Grupo
+-- Table structure for table Agendamento
 --
 
-DROP TABLE IF EXISTS Grupo;
+DROP TABLE IF EXISTS Agendamento;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE Grupo (
+CREATE TABLE Agendamento (
   Id int(11) NOT NULL,
   Nome varchar(45) NOT NULL,
   PRIMARY KEY (Id)
@@ -61,37 +61,37 @@ CREATE TABLE Grupo (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table Grupo
+-- Dumping data for table Agendamento
 --
 
-LOCK TABLES Grupo WRITE;
-/*!40000 ALTER TABLE Grupo DISABLE KEYS */;
-INSERT INTO Grupo VALUES (1,'Grupo 1'),(2,'Grupo 2');
-/*!40000 ALTER TABLE Grupo ENABLE KEYS */;
+LOCK TABLES Agendamento WRITE;
+/*!40000 ALTER TABLE Agendamento DISABLE KEYS */;
+INSERT INTO Agendamento VALUES (1,'Agendamento 1'),(2,'Agendamento 2');
+/*!40000 ALTER TABLE Agendamento ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table GrupoJogador
+-- Table structure for table AgendamentoJogador
 --
 
-DROP TABLE IF EXISTS GrupoJogador;
+DROP TABLE IF EXISTS AgendamentoJogador;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE GrupoJogador (
+CREATE TABLE AgendamentoJogador (
   idJogador int(11) NOT NULL,
-  IdGrupo int(11) NOT NULL,
-  PRIMARY KEY (IdGrupo,idJogador)
+  IdAgendamento int(11) NOT NULL,
+  PRIMARY KEY (IdAgendamento,idJogador)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table GrupoJogador
+-- Dumping data for table AgendamentoJogador
 --
 
-LOCK TABLES GrupoJogador WRITE;
-/*!40000 ALTER TABLE GrupoJogador DISABLE KEYS */;
-INSERT INTO GrupoJogador VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,2),(7,2),(8,2),(9,2),(10,2);
-/*!40000 ALTER TABLE GrupoJogador ENABLE KEYS */;
+LOCK TABLES AgendamentoJogador WRITE;
+/*!40000 ALTER TABLE AgendamentoJogador DISABLE KEYS */;
+INSERT INTO AgendamentoJogador VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,2),(7,2),(8,2),(9,2),(10,2);
+/*!40000 ALTER TABLE AgendamentoJogador ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
