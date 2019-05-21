@@ -7,7 +7,7 @@ namespace ApiMySql.Controller
 {
     [ApiController]
     [Route("/api/[controller]")]
-    public class AgendamentoController : ControllerBase
+    public lass AgendamentoController : ControllerBase
     {
         private readonly IAgendamentoRepository _AgendamentoRepository;
 
