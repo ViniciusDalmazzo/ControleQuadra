@@ -41,6 +41,11 @@ namespace ApiMySql
             {
                 return new AgendamentoRepository(Configuration.GetConnectionString("MySqlDbConnection"));
             });
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:3000"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +71,8 @@ namespace ApiMySql
             var option = new RewriteOptions();
             option.AddRedirect("^$", "swagger");
             app.UseRewriter(option);
+
+            app.UseCors(options => options.WithOrigins("https://localhost:3000"));
 
             app.UseMvc();
         }

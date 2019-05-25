@@ -1,5 +1,6 @@
 using ApiMySql.Model;
 using ApiMySql.Repository;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -7,6 +8,7 @@ namespace ApiMySql.Controller
 {
     [ApiController]
     [Route("/api/[controller]")]
+    [EnableCors("AllowOrigin")]
     public class JogadorController : ControllerBase
     {
         private readonly IJogadorRepository _jogadorRepository;
