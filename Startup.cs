@@ -44,7 +44,7 @@ namespace ApiMySql
 
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:3000"));
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("localhost:3000"));
             });
         }
 
@@ -72,7 +72,7 @@ namespace ApiMySql
             option.AddRedirect("^$", "swagger");
             app.UseRewriter(option);
 
-            app.UseCors(options => options.WithOrigins("https://localhost:3000"));
+            app.UseCors(options => options.WithOrigins("localhost:3000"));
 
             app.UseMvc();
         }
