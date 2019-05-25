@@ -49,6 +49,7 @@ namespace ApiMySql
 
             services.AddCors(c =>
             {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://agendamento-form.herokuapp.com/"));
                 c.AddPolicy("AllowOrigin", options => options.WithOrigins("http://localhost:3000"));
             });
         }
@@ -77,6 +78,7 @@ namespace ApiMySql
             option.AddRedirect("^$", "swagger");
             app.UseRewriter(option);
 
+            app.UseCors(options => options.WithOrigins("https://agendamento-form.herokuapp.com/"));
             app.UseCors(options => options.WithOrigins("http://localhost:3000"));
 
             app.UseMvc();
