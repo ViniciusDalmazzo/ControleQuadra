@@ -42,6 +42,11 @@ namespace ApiMySql
                 return new AgendamentoRepository(Configuration.GetConnectionString("MySqlDbConnection"));
             });
 
+            services.AddScoped<IGrupoRepository>(factory =>
+            {
+                return new GrupoRepository(Configuration.GetConnectionString("MySqlDbConnection"));
+            });
+
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.WithOrigins("http://localhost:3000"));

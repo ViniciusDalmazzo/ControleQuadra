@@ -22,12 +22,12 @@ namespace ApiMySql.Controller
         [Produces(typeof(Grupo))]
         public IActionResult Get()
         {
-            var Grupoes = _GrupoRepository.GetAll();
+            var Grupos = _GrupoRepository.GetAll();
 
-            if (Grupoes.Count() == 0)
+            if (Grupos.Count() == 0)
                 return NoContent();
 
-            return Ok(Grupoes);
+            return Ok(Grupos);
         }
 
         [HttpPost]
